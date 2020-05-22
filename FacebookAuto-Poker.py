@@ -1,9 +1,10 @@
 #! /usr/bin/python
 #############################################################################
-# Facebook Auto-Poker Python V1.5											#
-# Written By: Dennis Linuz <dennismald@gmail.com>							#
+# Facebook Auto-Poker Python V1.5					    #
+# Written By: Dennis Linuz <dennismald@gmail.com> 			    #
+# Edited By: William Visée <william.visee@student.uclouvain.be>             #
 # Auto-pokes anyone on Facebook that has poked you with a Variable Delay    #
-# and a file to specify which Facebook IDs NOT to poke (blockPokes.txt)		#
+# and a file to specify which Facebook IDs NOT to poke (blockPokes.txt)	    #
 #############################################################################
 FACEBOOK_USERNAME = ""
 FACEBOOK_PASSWORD = ""
@@ -26,11 +27,11 @@ while True:
 		tempPokeCount = 0
 		browser.open("http://m.facebook.com/pokes")
 		browser._factory.is_html = True
-		for l in browser.links(text_regex="Poke back"):
+		for l in browser.links(text_regex="Envoyer un poke en retour"):
 			result = True
 			browser._factory.is_html = True
 			if result:
-				browser.follow_link(text_regex="Poke back",nr=0)
+				browser.follow_link(text_regex="Envoyer un poke en retour",nr=0)
 				tempPokeCount += 1
 				totalPokes += 1
 				print "Poked! Total Pokes: " + str(totalPokes) + "\n"
